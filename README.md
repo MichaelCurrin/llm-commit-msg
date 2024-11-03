@@ -1,8 +1,12 @@
 # Commit Msg
 > CLI tool to generate a commit message based on your Git diff - using a local LLM
 
-[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/generic-project-template?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/generic-project-template/releases/)
+[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/commit-msg?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/commit-msg/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+
+[![Made with Python](https://img.shields.io/badge/Python->=3.10-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")
+[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
+[![OS - macOS](https://img.shields.io/badge/OS-macOS-blue?logo=apple&logoColor=white)](https://www.apple.com/macos/ "Go to Apple homepage")
 
 ## About
 
