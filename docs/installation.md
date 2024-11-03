@@ -28,7 +28,7 @@ Setup the alias:
 
 ```ini
 [alias]
-    c = '! git commit --edit -m "$(cd ~/repos/commit-msg && venv/bin/python -m commitmsg)"'
+    c = '! git commit --edit -m "$(git diff | cd ~/repos/commit-msg && venv/bin/python -m commitmsg)"'
 ```
 
 When run, this will:

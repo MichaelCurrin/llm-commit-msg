@@ -13,7 +13,7 @@ $ python -m commitmsg -h
 Generate a commit message in the CLI and simply display it.
 
 ```sh
-$ git diff || exit 1; (cd ~/repos/commit-msg && venv/bin/python -m commitmsg)
+$ git diff | (cd ~/repos/commit-msg && venv/bin/python -m commitmsg)
 ```
 
 ## Commit
