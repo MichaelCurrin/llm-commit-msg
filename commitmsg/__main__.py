@@ -10,6 +10,7 @@ import argparse
 from openai import OpenAI
 
 logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 API_KEY = os.getenv("OPENAI_API_KEY", "dummy")
 API_HOST = os.getenv("OPENAI_API_HOST", "http://localhost:1234/v1")
@@ -20,7 +21,7 @@ You are a helpful assistant that generates concise and informative Git commit me
 provided diff, describing changes to all the files in the diff and summarising the changes at a high-level if necessary.
 
 Provide a SINGLE commit message of ONE LINE, of length 50 to 72 characters, with optional description below,
-and return NOTHING else.
+and return NOTHING else, no preamble or intro or conclusion.
 
 Here is the conventional commit specification:
 
@@ -65,7 +66,7 @@ def request(
             ],
         )
     except Exception:
-        logging.exception("Error in API request")
+        logger.exception("Error in API request")
         raise
 
     assert response.choices[0], "No results returned"
@@ -79,8 +80,9 @@ def request(
 
 def request_llm(client: OpenAI, model_name: str, diff_content: str) -> str:
     """
-    Generate a commit message based on the provided diff content.
+    Generate a commit message using an LLM model and diff content.
     """
+    logger.info("Requesting LLM")
     user_prompt = f"{USER_PROMPT}\n\n{diff_content}"
 
     return request(client, model_name, SYSTEM_PROMPT, user_prompt)
@@ -110,10 +112,12 @@ def main(args) -> None:
 
     diff_content = args.diff if args.diff else sys.stdin.read()
 
+    logger.debug("Diff portion: \n %", diff_content[:200])
+
     try:
         commit_msg = generate_commit_msg(diff_content)
     except Exception:
-        logging.exception("Failed to generate commit message")
+        logger.exception("Failed to generate commit message")
         sys.exit(1)
 
     print(commit_msg)
