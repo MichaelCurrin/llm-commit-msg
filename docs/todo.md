@@ -5,3 +5,4 @@
     Or in JS where it can work as a VS Code extension. It could also run Git CLI
 - if no diff, add staged?
 - Error handling for empty diff so it doesn't hallunicate
+- add support for ollama - perhaps using langchain or keep openai and ollama libraries both used.
