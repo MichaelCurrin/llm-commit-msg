@@ -8,40 +8,10 @@ import logging
 import argparse
 
 from openai import OpenAI
+from .constants import API_KEY, API_HOST, MODEL_NAME, SYSTEM_PROMPT, USER_PROMPT
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-API_KEY = os.getenv("OPENAI_API_KEY", "dummy")
-API_HOST = os.getenv("OPENAI_API_HOST", "http://localhost:1234/v1")
-MODEL_NAME = os.getenv("OPENAI_MODEL_NAME", "local-model")
-
-SYSTEM_PROMPT = """\
-You are a helpful assistant that generates concise and informative Git commit messages based on the
-provided diff, describing changes to all the files in the diff and summarising the changes at a high-level if necessary.
-
-Provide a SINGLE commit message of ONE LINE, of length 50 to 72 characters, with optional description below,
-and return NOTHING else, no preamble or intro or conclusion.
-
-Here is the conventional commit specification:
-
-- `feat` - feature
-- `fix`
-- `style`
-- `refactor`
-- `build` - a change in the build system.
-- `perf` - performance
-- `ci` - changes to the CI.
-- `docs` - changes to documentation files or docs in code.
-- `test` - relating to running tests.
-- `chore` - changes to configs, file renames or moves, changes to dependencies.
-- `revert`
-
-Create commits based on that.
-e.g. feat: Add foo to bar.
-"""
-
-USER_PROMPT = "Generate a single one-line conventional commit message and nothing else, using the following Git diff:"
 
 
 def get_openai_client(api_key: str, api_host: str) -> OpenAI:
