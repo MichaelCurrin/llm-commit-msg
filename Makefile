@@ -9,7 +9,7 @@ help:
 	python -m commitmsg -h
 
 run:
-	python -m commitmsg
+	git diff | python -m commitmsg
 
 sample:
 	python -m commitmsg < sample.diff
