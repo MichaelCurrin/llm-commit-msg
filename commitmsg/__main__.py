@@ -101,9 +101,10 @@ def main(args) -> None:
     )
     parser.add_argument(
         "diff",
+        metavar="DIFF",
         nargs="?",
         help="The Git diff content to generate a commit message from. If not"
-        " passed as an argument, this will be read from stdin",
+        " passed as an argument, this will be read from stdin.",
     )
     args = parser.parse_args()
 
