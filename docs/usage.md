@@ -2,17 +2,23 @@
 
 First start the LLM server.
 
-## Run direct
-
-Run script directly in Bash using venv and script.
+## Help
 
 ```sh
-$ git diff | ~/.local/virtualenvs/test/bin/python ~/repos/commit-msg/commitmsg/__main__.py
+$ python -m commitmsg -h
 ```
 
-## Run with alias
+## Run app
 
-Run alias:
+Generate a commit message in the CLI and simply display it.
+
+```sh
+$ git diff || exit 1; (cd ~/repos/commit-msg && venv/bin/python -m commitmsg)
+```
+
+## Commit
+
+Run using the configured alias:
 
 ```sh
 $ git c
