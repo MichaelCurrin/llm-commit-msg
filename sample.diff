@@ -1,0 +1,51 @@
+diff --git a/src/main.py b/src/main.py
+index 1234567..abcdefg 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -1,10 +1,12 @@
+ def main():
+-    print("Hello, World!")
++    print("Hello, Git!")
++    greet_user()
+
+ def greet_user():
+     name = input("Enter your name: ")
+-    print(f"Hello, {name}!")
++    print(f"Hello, {name}! Welcome to our Git tutorial.")
++    print("Let's learn about version control!")
+
+ if __name__ == "__main__":
+     main()
+-    greet_user()
++    print("End of program")
+diff --git a/README.md b/README.md
+index 8765309..1234567 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# My Project
++# Git Learning Project
+
+-This is a simple project to demonstrate Git.
++This project is designed to help you learn Git and version control.
+
+@@ -6,3 +6,7 @@ This is a simple project to demonstrate Git.
+ ## Getting Started
+
+ 1. Clone the repository
++2. Run `python src/main.py`
++3. Follow the on-screen instructions
++
++Happy learning!
+diff --git a/src/utils.py b/src/utils.py
+new file mode 100644
+index 0000000..e614c4f
+--- /dev/null
++++ b/src/utils.py
+@@ -0,0 +1,5 @@
++def format_message(message):
++    return message.strip().capitalize()
++
++def get_current_date():
++    from datetime import date
++    return date.today().strftime("%Y-%m-%d")
