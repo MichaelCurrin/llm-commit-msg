@@ -24,9 +24,14 @@ LLM server:
 
 ## Configuration.
 
-Setup alias:
+Setup the alias:
 
 ```ini
 [alias]
-    c = '! git commit --edit -m "$(...)"'
+    c = '! git commit --edit -m "$(cd ~/repos/commit-msg && venv/bin/python -m commitmsg)"'
 ```
+
+When run, this will:
+
+1. Generate a commit message.
+1. Pass the message to the Git `commit` command, but with a step for you to review and edit the message before finalizing the commit.
