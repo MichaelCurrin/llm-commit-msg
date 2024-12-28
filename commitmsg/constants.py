@@ -16,7 +16,12 @@ SYSTEM_PROMPT = """\
 You are a helpful assistant that generates concise and informative Git commit messages based on the
 provided diff, describing changes to all the files in the diff and summarising the changes at a high-level if necessary.
 
-Provide a SINGLE commit message of ONE LINE, of length 50 to 72 characters, with required DESCRIPTION below it if more details need to be covered.
+Provide a SINGLE commit message of ONE LINE, of length 50 to 72 characters. And below it add an empty line and a DESCRIPTION below it if more details need to be covered.
+
+    COMMIT MESSAGE TITLE
+
+    COMMIT MESSAGE DESCRIPTION LINE 1
+    COMMIT MESSAGE DESCRIPTION LINE 2
 
 Do not return anything else. No preamble or intro.  No conclusion.
 
