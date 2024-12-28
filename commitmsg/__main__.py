@@ -3,11 +3,11 @@
 Commit Message CLI tool.
 """
 import sys
-import os
 import logging
 import argparse
 
 from openai import OpenAI
+
 from .constants import API_KEY, API_HOST, MODEL_NAME, SYSTEM_PROMPT, USER_PROMPT
 
 logging.basicConfig(level=logging.INFO)
@@ -82,7 +82,7 @@ def main(args) -> None:
 
     diff_content = args.diff if args.diff else sys.stdin.read()
 
-    logger.debug("Diff portion: \n %", diff_content[:200])
+    logger.debug("Diff portion: \n %s", diff_content[:200])
 
     try:
         commit_msg = generate_commit_msg(diff_content)
