@@ -1,5 +1,5 @@
-# Commit Msg
-> CLI tool to generate a commit message based on your Git diff - using a local LLM
+# LLM Commit Msg
+> CLI tool to generate a commit message based on your Git diff - using an LLM
 
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/commit-msg?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/commit-msg/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
@@ -10,14 +10,17 @@
 
 ## About
 
-This tool works an LLM model to interpret the Git diff and generate a commit message. There are two options then:
+This tool works an LLM model to interpret the Git diff and generate a commit message.
 
-- This can be run using a local LLM server, at a no cost.
-- If you have a paid subscription for ChatGPT, you can use configure against your credentials instead.
+Here are options for the LLM model:
 
-### Alternatives
+- **Local LLM server** - Run at no cost and keeping your data private and offline.
+- **OpenAI** - If you have a paid subscription for ChatGPT, configure with your credentials.
+- **ChatGPT alternatives** - Use a free tool like [pollinations.ai](https://pollinations.ai) which uses the OpenAI API protocol.
 
-If you want this logic as an extension is VS Code instead of CLI, you can search the extensions marketplace for extensions that generate commit messages as there are a lot, though they tend to require a ChatGPT token and paid subscription.
+### VS Code extension ideas
+
+If you want this logic as an _extension_ in VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, though they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
 
 
 ## Documentation

@@ -9,7 +9,7 @@ Python project:
 1. Install Python 3.
 1. Create a virtual environment.
     ```sh
-    $ python -m venv venv
+    $ python -m venv .venv
     ```
 1. Install packages.
     ```sh
@@ -28,8 +28,14 @@ Setup the alias:
 
 ```ini
 [alias]
-    c = '! git commit --edit -m "$(git diff | cd ~/repos/commit-msg && venv/bin/python -m commitmsg)"'
+	c = "!f() { \
+		export OPENAI_API_HOST='https://text.pollinations.ai/openai'; \
+		MSG=$(git diff --cached | (cd ~/repos/llm-commit-msg && .venv/bin/python -m commitmsg)); \
+		git commit --edit -m \"$MSG\" && git log -n1; \
+	}; f"
 ```
+
+Remove `--cached` if you want to look at all modified files and not just staged changes.
 
 When run, this will:
 
