@@ -7,7 +7,7 @@ $ source .venv/bin/activate
 ```
 
 ```sh
-$ python -m commitmsg -h
+$ python -m llmcommitmsg -h
 ```
 
 ## Sample
@@ -29,7 +29,7 @@ Make changes you want to commit. Optionally stage changes you want to commit oth
 Generate a commit message in the CLI and simply display it.
 
 ```sh
-$ (git diff --cached --exit-code && git -P diff || git -P diff --cached) | ~/repos/llm-commit-msg/.venv/bin/python -m commitmsg
+$ (git diff --cached --exit-code && git -P diff || git -P diff --cached) | ~/repos/llm-commit-msg/.venv/bin/python -m llmcommitmsg
 ```
 
 ### Commit
