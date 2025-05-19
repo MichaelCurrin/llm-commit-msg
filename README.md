@@ -14,7 +14,7 @@ This tool works an LLM model to interpret the Git diff and generate a commit mes
 
 Here are options for the LLM model:
 
-- **Local LLM server** - Run at no cost and keeping your data private and offline.
+- **Local LLM server** - Run at no cost and keeping your data private and offline. e.g. Using Ollama.
 - **OpenAI** - If you have a paid subscription for ChatGPT, configure with your credentials.
 - **ChatGPT alternatives** - Use a free tool like [pollinations.ai](https://pollinations.ai) which uses the OpenAI API protocol.
 
