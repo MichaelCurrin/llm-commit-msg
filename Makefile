@@ -9,8 +9,12 @@ install:
 help:
 	python -m commitmsg -h
 
+diff:
+	(git diff --cached --exit-code && git -P diff || git -P diff --cached)
+
 run:
-	git diff --cached | python -m commitmsg
+	$(MAKE) diff \
+		| python -m commitmsg
 
 run-poll:
 	export OPENAI_API_HOST='https://text.pollinations.ai/openai' \
