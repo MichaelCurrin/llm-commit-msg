@@ -22,9 +22,9 @@ LLM server:
 1. Install a model.
 1. Run model with local server.
 
-## Configuration.
+## Configuration
 
-Setup the alias:
+### Setup the alias
 
 ```ini
 [alias]
@@ -41,3 +41,11 @@ When run, this will:
 
 1. Generate a commit message.
 1. Pass the message to the Git `commit` command, but with a step for you to review and edit the message before finalizing the commit.
+
+### Choose the AI server
+
+Set as your environment variables in your shell config or shell session:
+
+- `OPENAI_API_KEY`
+- `OPENAI_API_HOST`
+- `OPENAI_MODEL_NAME`
