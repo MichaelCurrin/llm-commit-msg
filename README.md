@@ -8,6 +8,8 @@
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
 [![OS - macOS](https://img.shields.io/badge/OS-macOS-blue?logo=apple&logoColor=white)](https://www.apple.com/macos/ "Go to Apple homepage")
 
+**Note that this project works well but the quality of the commit messages is poor and incorrectly formatted most of the time using smaller local models, despite attempts to rework the prompt.**
+
 ## About
 
 This tool works an LLM model to interpret the Git diff and generate a commit message.
