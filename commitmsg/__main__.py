@@ -53,7 +53,7 @@ def request_llm(client: OpenAI, model_name: str, diff_content: str) -> str:
     Generate a commit message using an LLM model and diff content.
     """
     logger.info("Requesting LLM")
-    user_prompt = f"{USER_PROMPT}\n\n{diff_content}"
+    user_prompt = f"{USER_PROMPT}\n\n'''{diff_content}'''"
 
     return request(client, model_name, SYSTEM_PROMPT, user_prompt)
 
