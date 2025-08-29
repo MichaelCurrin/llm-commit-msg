@@ -22,7 +22,7 @@ $ make sample
 
 First navigate to the repo you are working on.
 
-Make sure to **stage** any stages first.
+Make changes you want to commit. Optionally stage changes you want to commit otherwise unstaged changes will be used.
 
 ### Display
 
