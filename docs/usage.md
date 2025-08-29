@@ -22,15 +22,15 @@ $ make sample
 
 First navigate to the repo you are working on.
 
+Make sure to **stage** any stages first.
+
 ### Display
 
 Generate a commit message in the CLI and simply display it.
 
 ```sh
-$ git diff | (cd ~/repos/commit-msg && .venv/bin/python -m commitmsg)
+$ (git diff --cached --exit-code && git -P diff || git -P diff --cached) | ~/repos/llm-commit-msg/.venv/bin/python -m commitmsg
 ```
-
-Make it `git diff --cached` if you only want to use staged changes. This requires at least one file to be staged otherwise output will be blank.
 
 ### Commit
 
