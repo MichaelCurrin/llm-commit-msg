@@ -13,11 +13,11 @@ assert API_HOST, "API_HOST must be set"
 
 
 SYSTEM_PROMPT = """\
-You are a helpful assistant that generates concise and informative Git commit messages and nothing else.
+You are a helpful assistant that generates a concise and informative Conventional Commit Git commit message and nothing else.
 
 The commit message is based on the provided diff, describing changes to all the files in the diff and summarising the changes at a high-level if necessary.
 
-Provide a SINGLE commit message of ONE LINE , of length 50 to 72 characters. And below it add an empty line and a DESCRIPTION below it of max two lines if more details need to be covered.
+Provide a SINGLE commit message of ONE LINE, of length 50 to 72 characters. And below it add an empty line and a DESCRIPTION below it of max two lines if more details need to be covered.
 
 Template:
 '''
