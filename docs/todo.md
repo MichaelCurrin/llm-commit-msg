@@ -1,6 +1,6 @@
 # TODO
 
-- Find prompts others have written or change models - the output sometimes not relevant or specific enough and misses conventional commit prefix.
+- Find prompts others have written or change models - the output sometimes not relevant or specific enough and misses conventional commit prefix. Maybe break conventional commit into separate LLM call, at cost of speed.
 - For large file changes, use git st or diff-index instead and see how that performs (different prompt though)
 - Make installable Python package. Even if based on repo, at least install in bin for Windows and Unix.
 - rewrite. This could be rewritten in *Go* so it can be packaged with dependencies as a binary.
