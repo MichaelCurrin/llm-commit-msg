@@ -21,7 +21,8 @@ def run(show_diff=False, show_message=False) -> None:
     Run the application using the provided flags.
 
     :param show_diff: If True, show the Git diff only and exit.
-    :param show_message: If True, generate the commit message and print it, but do not commit.
+    :param show_message: If True, generate the commit message and print it, but
+        do not commit.
 
     :returns: None
     """
