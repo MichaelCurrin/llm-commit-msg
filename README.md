@@ -8,7 +8,7 @@
 
 ## About
 
-This tool works an LLM model to interpret the Git diff and generate a commit message.
+This tool works with an LLM model to interpret the Git diff, generate a commit message, then commit it.
 
 Here are options for the LLM model:
 
