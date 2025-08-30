@@ -16,7 +16,7 @@ fmt:
 	poetry run ruff check --select I --fix .
 
 help:
-	python -m llmcommitmsg -h
+	poetry run python -m llmcommitmsg -h
 
 # Test commands to show output without committing.
 
@@ -25,12 +25,12 @@ diff:
 
 run:
 	$(MAKE) diff \
-		| python -m llmcommitmsg
+		| poetry run python -m llmcommitmsg
 
 run-poll:
 	export OPENAI_API_HOST='https://text.pollinations.ai/openai' \
-		&& git diff --cached | python -m llmcommitmsg
+		&& git diff --cached | poetry run python -m llmcommitmsg
 
 # Run against fixed input.
 sample:
-	python -m llmcommitmsg < sample.diff
+	poetry run python -m llmcommitmsg < sample.diff
