@@ -5,6 +5,9 @@ install:
 	pip install pip --upgrade
 	pip install -r requirements.txt
 
+fmt:
+	ruff format
+	ruff check --select I --fix .
 
 help:
 	python -m llmcommitmsg -h
