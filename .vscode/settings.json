@@ -1,4 +1,5 @@
 {
-  "python.defaultInterpreterPath": ".venv/bin/python",
-  "editor.rulers": [79]
+  "editor.rulers": [
+    79
+  ]
 }
