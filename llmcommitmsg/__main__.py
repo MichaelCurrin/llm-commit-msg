@@ -4,6 +4,7 @@ LLM commit message application.
 
 Main entry point for generating commit messages and committing changes.
 """
+
 import argparse
 import logging
 
