@@ -12,9 +12,9 @@ This tool works with an LLM model to interpret the Git diff, generate a commit m
 
 Here are options for the LLM model:
 
-- **Local LLM server** - Run at no cost and keeping your data private and offline.
+- **Local LLM server** - Run at no cost and keeping your data **private** and **offline**.
 - **OpenAI** - If you have a paid subscription for ChatGPT, configure with your credentials.
-- **ChatGPT alternatives** - Use a free tool like [pollinations.ai](https://pollinations.ai) which uses the OpenAI API protocol.
+- **ChatGPT alternatives** - Use a service like [pollinations.ai](https://pollinations.ai) (free) which uses the OpenAI API protocol.
 
 ## VS Code extension ideas
 
