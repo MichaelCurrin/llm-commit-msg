@@ -7,8 +7,7 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.scripts]
-# TODO short name here and for configuring elsewhere.
-llmcommitmsg = "llmcommitmsg.__main__:main"
+lcm = "llmcommitmsg.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
