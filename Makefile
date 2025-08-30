@@ -1,5 +1,6 @@
 SHELL = /bin/bash
 
+all: install check
 
 install:
 	poetry install --no-root
@@ -11,9 +12,14 @@ update:
 	poetry update
 
 
+check:
+	poetry run ruff format --check
+	poetry run ruff check --select I .
+
 fmt:
 	poetry run ruff format
 	poetry run ruff check --select I --fix .
+
 
 help:
 	poetry run python -m llmcommitmsg -h
@@ -29,7 +35,8 @@ run:
 
 run-poll:
 	export OPENAI_API_HOST='https://text.pollinations.ai/openai' \
-		&& git diff --cached | poetry run python -m llmcommitmsg
+		&& $(MAKE) diff \
+		| poetry run python -m llmcommitmsg
 
 # Run against fixed input.
 sample:
