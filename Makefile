@@ -1,13 +1,29 @@
-ENV = /bin/bash
+SHELL = /bin/bash
 
+all: install check
 
 install:
-	pip install pip --upgrade
-	pip install -r requirements.txt
+	poetry install --no-root
+
+g install-global:
+	pipx install .
+
+update:
+	poetry update
+
+
+check:
+	poetry build
+	poetry run ruff format --check
+	poetry run ruff check --select I .
+
+fmt:
+	poetry run ruff format
+	poetry run ruff check --select I --fix .
 
 
 help:
-	python -m llmcommitmsg -h
+	poetry run python -m llmcommitmsg -h
 
 # Test commands to show output without committing.
 
@@ -16,12 +32,13 @@ diff:
 
 run:
 	$(MAKE) diff \
-		| python -m llmcommitmsg
+		| poetry run python -m llmcommitmsg
 
 run-poll:
 	export OPENAI_API_HOST='https://text.pollinations.ai/openai' \
-		&& git diff --cached | python -m llmcommitmsg
+		&& $(MAKE) diff \
+		| poetry run python -m llmcommitmsg
 
 # Run against fixed input.
 sample:
-	python -m llmcommitmsg < sample.diff
+	poetry run python -m llmcommitmsg < sample.diff

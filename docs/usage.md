@@ -1,41 +1,28 @@
 # Usage
 
+First start the LLM server.
+
 ## Help
 
 ```sh
-$ source .venv/bin/activate
+$ make help
 ```
 
-```sh
-$ python -m llmcommitmsg -h
 ```
+usage: lcm [-h] [--diff] [-d]
 
-## Sample
+Generate a commit message using LLM and Git diff.
 
-Run against the hardcoded diff at [sample.diff](/sample.diff). This makes it easy to test prompt changes since the input is always the same.
-
-```sh
-$ make sample
+options:
+  -h, --help     show this help message and exit
+  --diff         Show the Git diff only and exit.
+  -d, --dry-run  Generate the commit message using the LLM and print it and exit. This is a dry-run without commiting.
 ```
 
 ## Run app
 
-First navigate to the repo you are working on.
-
-Make changes you want to commit. Optionally stage changes you want to commit otherwise unstaged changes will be used.
-
-### Display
-
-Generate a commit message in the CLI and simply display it.
+Generate a commit message in the CLI and commit it.
 
 ```sh
-$ (git diff --cached --exit-code && git -P diff || git -P diff --cached) | ~/repos/llm-commit-msg/.venv/bin/python -m llmcommitmsg
-```
-
-### Commit
-
-Run using the configured alias:
-
-```sh
-$ git c
+$ lcm
 ```

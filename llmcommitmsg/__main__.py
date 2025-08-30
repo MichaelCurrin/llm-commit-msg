@@ -1,97 +1,72 @@
 #!/usr/bin/env python3
 """
-Commit Message CLI tool.
+LLM commit message application.
+
+Main entry point for generating commit messages and committing changes.
 """
-import sys
-import logging
+
 import argparse
+import logging
 
-from openai import OpenAI
-
-from .constants import API_KEY, API_HOST, MODEL_NAME, SYSTEM_PROMPT, USER_PROMPT
+from . import git_actions, llm
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Match with poetry scripts.
+APP_CMD = "lcm"
 
-def get_openai_client(api_key: str, api_host: str) -> OpenAI:
+
+def run(show_diff=False, show_message=False) -> None:
     """
-    Create and return an OpenAI client instance.
+    Main logic to generate a diff and a commit message and commit it.
+
+    :param show_diff: If True, show the Git diff only and exit.
+    :param show_message: If True, generate the commit message and print it then
+        exit.
     """
-    return OpenAI(api_key=api_key, base_url=api_host)
+    repo = git_actions.get_repo()
+    diff = git_actions.get_diff(repo)
+
+    if show_diff:
+        print(diff)
+        return
+
+    commit_msg = llm.generate_commit_msg(diff)
+
+    if show_message:
+        print("Generated Commit Message:\n")
+        print(commit_msg)
+        return
+
+    git_actions.commit_with_message(repo, commit_msg)
 
 
-def request(
-    client: OpenAI, model_name: str, system_prompt: str, user_prompt: str
-) -> str:
-    """
-    Send a request to the OpenAI API and return the response.
-    """
-    try:
-        response = client.chat.completions.create(
-            model=model_name,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-        )
-    except Exception:
-        logger.exception("Error in API request")
-        raise
-
-    assert response.choices[0], "No results returned"
-    message = response.choices[0].message
-
-    if not message.content:
-        raise ValueError("No content returned")
-
-    return message.content.strip()
-
-
-def request_llm(client: OpenAI, model_name: str, diff_content: str) -> str:
-    """
-    Generate a commit message using an LLM model and diff content.
-    """
-    logger.info("Requesting LLM")
-    user_prompt = f"{USER_PROMPT}\n\n'''{diff_content}'''"
-
-    return request(client, model_name, SYSTEM_PROMPT, user_prompt)
-
-
-def generate_commit_msg(diff_content: str) -> str:
-    client = get_openai_client(API_KEY, API_HOST)
-
-    return request_llm(client, MODEL_NAME, diff_content)
-
-
-def main(args) -> None:
+def main():
     """
     Main command-line entry-point.
     """
     parser = argparse.ArgumentParser(
-        description="Generate a conventional commit message from a Git diff."
+        description="Generate a commit message using LLM and Git diff.",
+        prog=APP_CMD,
     )
     parser.add_argument(
-        "diff",
-        metavar="DIFF",
-        nargs="?",
-        help="The Git diff content to generate a commit message from. If not"
-        " passed as an argument, this will be read from stdin.",
+        "--diff",
+        action="store_true",
+        help="Show the Git diff only and exit.",
     )
+    parser.add_argument(
+        "-d",
+        "--dry-run",
+        action="store_true",
+        help="Generate the commit message using the LLM and print it and exit."
+        " This is a dry-run without commiting.",
+    )
+
     args = parser.parse_args()
 
-    diff_content = args.diff if args.diff else sys.stdin.read()
-
-    logger.debug("Diff portion: \n %s", diff_content[:200])
-
-    try:
-        commit_msg = generate_commit_msg(diff_content)
-    except Exception:
-        logger.exception("Failed to generate commit message")
-        sys.exit(1)
-
-    print(commit_msg)
+    run(show_diff=args.diff, show_message=args.msg)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()

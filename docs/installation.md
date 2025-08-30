@@ -1,21 +1,27 @@
 # Installation
 
-Note: Windows is not supported.
-
 ## Install Python project
 
-1. Install Python 3.
-1. Create a virtual environment.
-    ```sh
-    $ python -m venv .venv
-    ```
-1. Install packages.
-    ```sh
-    $ make install
-    ```
+Install Python 3 with version as set in [pyproject.toml](/pyproject.toml).
 
-## Setup local LLM server
+### Install with pip
 
-1. Install a LLM server e.g. Ollama CLI or LM Studio.
+```sh
+$ pip install git+https://github.com/MichaelCurrin/llm-commit-msg
+```
+
+### Install with pipx
+
+Install `pipx` - see the [docs](https://pipx.pypa.io/stable/).
+
+Install app globally:
+
+```sh
+$ pipx install git+https://github.com/MichaelCurrin/llm-commit-msg
+```
+
+## Setup LLM server
+
+1. Install LM Server.
 1. Install a model.
-1. If necessary, start local server with the required model.
+1. Run model with local server.
