@@ -4,7 +4,7 @@ Install Python 3 with version as set in [pyproject.toml](/pyproject.toml).
 
 Clone the repo.
 
-## Project
+## Setup project
 
 Install project packages in an isolated enviroment with Poetry:
 
@@ -12,7 +12,21 @@ Install project packages in an isolated enviroment with Poetry:
 $ make install
 ```
 
-## Global
+
+## Display help
+
+```sh
+$ make help
+```
+
+
+## Run app directly
+
+```sh
+poetry run python -m llmcommitmsg
+```
+
+## Install global from local repo
 
 Install `pipx` - see the [docs](https://pipx.pypa.io/stable/).
 
@@ -20,4 +34,10 @@ Install app globally:
 
 ```sh
 $ make g
+```
+
+Uninstall:
+
+```sh
+$ pipx uninstall llmcommitmsg
 ```
