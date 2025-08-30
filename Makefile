@@ -5,6 +5,9 @@ all: install check
 install:
 	poetry install --no-root
 
+g install-global:
+	pipx install .
+
 update:
 	poetry update
 
