@@ -1,13 +1,19 @@
-ENV = /bin/bash
+SHELL = /bin/bash
 
 
 install:
-	pip install pip --upgrade
-	pip install -r requirements.txt
+	poetry install --no-root
+
+g install-global:
+	poetry install
+
+update:
+	poetry update
+
 
 fmt:
-	ruff format
-	ruff check --select I --fix .
+	poetry run ruff format
+	poetry run ruff check --select I --fix .
 
 help:
 	python -m llmcommitmsg -h
