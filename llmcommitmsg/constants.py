@@ -4,6 +4,7 @@ Constants module.
 
 import os
 
+
 POLLINATIONS = "https://text.pollinations.ai/openai"
 LOCALHOST = "http://localhost:1234/v1"
 
