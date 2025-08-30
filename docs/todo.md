@@ -18,3 +18,8 @@ Rename to shorter tool at least when installed
 Real models
 Set install instructions
 Set log level and verbosity flag
+
+---
+
+Mypy
+hooks
