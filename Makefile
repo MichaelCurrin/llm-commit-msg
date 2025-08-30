@@ -5,14 +5,12 @@ all: install check
 install:
 	poetry install --no-root
 
-g install-global:
-	poetry install
-
 update:
 	poetry update
 
 
 check:
+	poetry build
 	poetry run ruff format --check
 	poetry run ruff check --select I .
 
