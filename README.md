@@ -20,6 +20,16 @@ Here are options for the LLM model:
 
 If you want this LLM logic as an _extension_ in VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, though they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
 
+## Quickstart
+
+Setup and run:
+
+```sh
+$ pip install git+https://github.com/MichaelCurrin/llm-commit-msg
+```
+```sh
+$ lcm
+```
 
 ## Documentation
 

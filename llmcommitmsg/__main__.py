@@ -65,7 +65,7 @@ def main():
 
     args = parser.parse_args()
 
-    run(show_diff=args.diff, show_message=args.msg)
+    run(show_diff=args.diff, show_message=args.dry_run)
 
 
 if __name__ == "__main__":
