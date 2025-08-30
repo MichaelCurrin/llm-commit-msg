@@ -15,6 +15,16 @@ logger = logging.getLogger(__name__)
 
 
 def run(show_diff=False, show_message=False) -> None:
+    """
+    Main entry-point for the application.
+
+    Run the application using the provided flags.
+
+    :param show_diff: If True, show the Git diff only and exit.
+    :param show_message: If True, generate the commit message and print it, but do not commit.
+
+    :returns: None
+    """
     repo = git_actions.get_repo()
 
     diff = git_actions.get_diff(repo)
