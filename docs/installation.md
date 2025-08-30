@@ -11,12 +11,6 @@ Install app globally:
 $ pipx install .
 ```
 
-For development:
-
-```sh
-$ make install
-```
-
 ## Setup LLM server
 
 1. Install LM Server.

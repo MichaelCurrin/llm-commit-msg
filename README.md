@@ -16,9 +16,9 @@ Here are options for the LLM model:
 - **OpenAI** - If you have a paid subscription for ChatGPT, configure with your credentials.
 - **ChatGPT alternatives** - Use a free tool like [pollinations.ai](https://pollinations.ai) which uses the OpenAI API protocol.
 
-### VS Code extension ideas
+## VS Code extension ideas
 
-If you want this logic as an _extension_ in VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, though they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
+If you want this LLM logic as an _extension_ in VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, though they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
 
 
 ## Documentation
