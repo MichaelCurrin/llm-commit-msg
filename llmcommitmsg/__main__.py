@@ -16,18 +16,15 @@ logger = logging.getLogger(__name__)
 
 def run(show_diff=False, show_message=False) -> None:
     """
-    Main entry-point for the application.
-
-    Run the application using the provided flags.
+    Main logic to generate a diff and a commit message and commit it.
 
     :param show_diff: If True, show the Git diff only and exit.
-    :param show_message: If True, generate the commit message and print it, but
-        do not commit.
+    :param show_message: If True, generate the commit message and print it then
+        exit.
 
     :returns: None
     """
     repo = git_actions.get_repo()
-
     diff = git_actions.get_diff(repo)
 
     if show_diff:
@@ -41,8 +38,7 @@ def run(show_diff=False, show_message=False) -> None:
         print(commit_msg)
         return
 
-    commit_msg = llm.generate_commit_msg(diff)
-    # git_actions.commit_with_message(repo, commit_msg)
+    git_actions.commit_with_message(repo, commit_msg)
 
 
 def main():
@@ -53,15 +49,17 @@ def main():
         description="Generate a commit message using LLM and Git diff."
     )
     parser.add_argument(
+        "-d",
         "--diff",
         action="store_true",
         help="Show the Git diff only and exit.",
     )
     parser.add_argument(
-        "--msg",
+        "-d",
+        "--dry-run",
         action="store_true",
         help="Generate the commit message using the LLM and print it and exit."
-        "If the `--diff` flag is added with this, that will be ignored",
+        " This is a dry-run without commiting.",
     )
 
     args = parser.parse_args()
