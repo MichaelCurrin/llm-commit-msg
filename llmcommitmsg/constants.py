@@ -9,8 +9,8 @@ POLLINATIONS = "https://text.pollinations.ai/openai"
 LOCALHOST = "http://localhost:1234/v1"
 
 API_KEY = os.getenv("OPENAI_API_KEY", "dummy")
-API_HOST = os.getenv("OPENAI_API_HOST", POLLINATIONS)
-MODEL_NAME = os.getenv("OPENAI_MODEL_NAME", "local-model")
+API_HOST = os.getenv("OPENAI_API_HOST", "http://localhost:11434/v1")
+MODEL_NAME = os.getenv("OPENAI_MODEL_NAME", "gemma3")
 
 assert API_KEY, "API_KEY must be set"
 assert API_HOST, "API_HOST must be set"
