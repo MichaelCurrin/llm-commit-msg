@@ -22,12 +22,14 @@ If you want this LLM logic as an _extension_ in VS Code instead of as a CLI, you
 
 ## Quickstart
 
-Setup with `pip` or `pipx`:
+ß with `pip` or `pipx`:
 
 ```sh
 $ pip install git+https://github.com/MichaelCurrin/llm-commit-msg
 ```
+
 Run:
+
 ```sh
 $ lcm --help
 ```
