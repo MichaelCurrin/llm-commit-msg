@@ -11,6 +11,13 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
+def _has_working_tree_changes(repo: Repo) -> bool:
+    """
+    Return True if there are unstaged changes in the repo.
+    """
+    return repo.is_dirty(index=False, working_tree=True)
+
+
 def get_repo() -> Repo:
     """
     Return configured Repo instance using the current directory or parent
@@ -19,18 +26,11 @@ def get_repo() -> Repo:
     return Repo(search_parent_directories=True)
 
 
-def has_staged_changes(repo: Repo) -> bool:
+def _has_staged_changes(repo: Repo) -> bool:
     """
     Return True if there are changed staged in the repo.
     """
     return repo.is_dirty(index=True, working_tree=False)
-
-
-def has_working_tree_changes(repo: Repo) -> bool:
-    """
-    Return True if there are unstaged changes in the repo
-    """
-    return repo.is_dirty(index=False, working_tree=True)
 
 
 def get_diff(repo: Repo) -> str:
@@ -39,11 +39,11 @@ def get_diff(repo: Repo) -> str:
     working tree.
     """
     try:
-        if has_staged_changes(repo):
+        if _has_staged_changes(repo):
             logging.info("Using staged changes for the diff.")
             return repo.git.diff("--cached")
 
-        if has_working_tree_changes(repo):
+        if _has_working_tree_changes(repo):
             logging.info(
                 "No staged changes found. Using working tree changes for the diff."
             )
@@ -62,12 +62,12 @@ def commit_with_message(repo: Repo, message: str) -> None:
     back to working tree.
     """
     try:
-        if has_staged_changes(repo):
+        if _has_staged_changes(repo):
             repo.index.commit(message)
             logging.info("Commit successful (staged changes)!")
             return
 
-        if has_working_tree_changes(repo):
+        if _has_working_tree_changes(repo):
             # Add all changes to the index.
             repo.git.add(A=True)
             repo.index.commit(message)

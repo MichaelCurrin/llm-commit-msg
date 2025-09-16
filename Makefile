@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-all: install check
+all: install check test
 
 install:
 	poetry install --no-root
@@ -26,6 +26,10 @@ help:
 	poetry run python -m llmcommitmsg -h
 
 # Test commands to show output without committing.
+
+test:
+	PYTHONPATH=. poetry run pytest
+
 
 diff:
 	(git diff --cached --exit-code && git -P diff || git -P diff --cached)
