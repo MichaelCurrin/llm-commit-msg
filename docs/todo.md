@@ -6,7 +6,8 @@
     - I have this in Go, just have to keep changes repeated or pick one to focus on.
     - Or in JS where it can work as a VS Code extension. It could also run Git CLI.
 - Set max tokens - at least for output not input limit if possible.
-
+- Allow prompt override.
+- See if simpler prompt works now with better model - see Go repo.
 
 ## Diff
 
