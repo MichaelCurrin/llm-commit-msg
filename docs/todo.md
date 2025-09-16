@@ -9,7 +9,7 @@
 - Set max tokens - at least for output not input limit if possible.
 
 
----s
+---
 
 Set flags or env variables for model/API
 Set flag to force only
@@ -24,3 +24,11 @@ Set log level and verbosity flag
 Mypy
 hooks
 - add support for git commands builtin with Python (maybe a package otherwise subprocess)
+
+
+---
+
+add step to edit message before committing - can be in Python app and then pass to git
+maybe option to retry or cancel
+
+otherwise at least print the commit message
