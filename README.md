@@ -1,14 +1,14 @@
 # LLM Commit Msg
-> CLI tool to generate a commit message based on your Git diff - using an LLM
+> CLI tool to generate a commit message with an LLM then commit it
 
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/llm-commit-msg?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/llm-commit-msg/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
-[![Made with Python](https://img.shields.io/badge/Python->=3.10-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")
+[![Made with Python](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fllm-commit-msg%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=$.tool.poetry.dependencies.python&label=python&logo=python&logoColor=white)](https://python.org "Go to Python homepage")
 
 ## About
 
-This tool works with an LLM model to interpret the Git diff, generate a commit message, then commit it.
+This tool works with an LLM model to read the Git diff from changed files, generate a commit message, then commit with it.
 
 Here are options for choosing an LLM model:
 
@@ -18,11 +18,9 @@ Here are options for choosing an LLM model:
 
 ## VS Code extension ideas
 
-If you want this LLM logic as an _extension_ in VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, but they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
+If you prefer this LLM logic as an _extension_ in an IDE like VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, but they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
 
 ## Quickstart
-
-Install with `pip` or `pipx`:
 
 ```sh
 $ pip install git+https://github.com/MichaelCurrin/llm-commit-msg
