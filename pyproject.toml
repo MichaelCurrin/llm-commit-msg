@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "llmcommitmsg"
-version = "0.2.0"
+version = "0.3.0"
 description = "CLI tool to generate a commit message based on your Git diff - using an LLM"
 authors = ["Michael Currin <18750745+MichaelCurrin@users.noreply.github.com>"]
 license = "MIT"
