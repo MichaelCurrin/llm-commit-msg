@@ -29,7 +29,7 @@ $ pip install git+https://github.com/MichaelCurrin/llm-commit-msg
 ```
 Run:
 ```sh
-$ lcm
+$ lcm --help
 ```
 
 ## Documentation
