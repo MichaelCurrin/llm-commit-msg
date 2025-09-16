@@ -10,7 +10,7 @@ The tool supports both local LLM servers (like Ollama) and cloud-based services 
 
 - Ease of use
 - Security (using local LLM or self-hosted cloud LLMs are recommended over using subscription ChatGPT API)
-- Quality of uput
+- Quality of input
 
 Speed is limited by what your local machine can do and what model can do, there is no much possible to improve on here.
 
