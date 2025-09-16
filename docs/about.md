@@ -26,3 +26,10 @@ Speed is limited by what your local machine can do and what model can do, there 
 - **Configuration**: Environment-based configuration for API keys, hosts, and model names
 - **Documentation**: Comprehensive usage guides, installation instructions, and configuration documentation
 - **Performance**: Handle large file changes efficiently with appropriate diff strategies
+
+
+## What about running as an IDE extension?
+
+If you prefer this LLM logic as an _extension_ in an IDE like VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many there, but they tend to require a ChatGPT secret token and paid subscription and the extensions won't necessarily work with a local LLM or ChatGPT alternatives.
+
+This tool could also be written so there is an installable binary made with Go or as a Node app and then a VS Code extension to trigger that, but it's not worth the effort yet.
