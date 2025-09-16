@@ -22,10 +22,6 @@ Here are options for choosing an LLM model:
 - Keep your private code private - use a local LLM without internet access and no cost.
 - Full control over the prompt for writing commit messages (though you have to clone this repo to customize that).
 
-## VS Code extension ideas
-
-If you prefer this LLM logic as an _extension_ in an IDE like VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, but they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
-
 ## Quickstart
 
 ```sh
