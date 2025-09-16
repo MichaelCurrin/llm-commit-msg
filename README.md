@@ -16,6 +16,12 @@ Here are options for choosing an LLM model:
 - **OpenAI** - If you have a paid subscription for ChatGPT, you can configure with your credentials. Then you can use a better model and don't need a local server running.
 - **ChatGPT alternatives** - Use a service like [pollinations.ai](https://pollinations.ai) which uses the OpenAI API protocol. This is free and might be higher quality than a local model, but your code is no longer private and you can hit rate limiting issues.
 
+## Motivation for using this tool
+
+- Generate commit messages in the CLI without being tied to an IDE, or if your IDE doesn't have a button to generate commit messages.
+- Keep your private code private - use a local LLM without internet access and no cost.
+- Full control over the prompt for writing commit messages (though you have to clone this repo to customize that).
+
 ## VS Code extension ideas
 
 If you prefer this LLM logic as an _extension_ in an IDE like VS Code instead of as a CLI, you can search the extensions marketplace for extensions that generate commit messages. There are many, but they tend to require a ChatGPT token and paid subscription and won't necessarily work with a local LLM or ChatGPT alternatives.
@@ -31,6 +37,8 @@ Run:
 ```sh
 $ lcm --help
 ```
+
+Or run without flags to generate a commit message and commit it. The default settings as assume you have Ollama running locally.
 
 ## Documentation
 
