@@ -2,14 +2,18 @@ SHELL = /bin/bash
 
 all: install check test
 
+h help:
+	@grep '^[a-z]' Makefile
+
 install:
 	poetry install --no-root
+
+update:
+	poetry update
 
 g install-global:
 	pipx install .
 
-update:
-	poetry update
 
 
 check:
