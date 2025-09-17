@@ -49,11 +49,7 @@ def main() -> None:
         description="Generate a commit message using LLM and Git diff.",
         prog=APP_CMD,
     )
-    parser.add_argument(
-        "--show-diff",
-        action="store_true",
-        help="Show the Git diff only and exit.",
-    )
+
     parser.add_argument(
         "-d",
         "--dry-run",
@@ -61,19 +57,22 @@ def main() -> None:
         help="Generate the commit message using the LLM and print it and exit."
         " This is a dry-run without commiting.",
     )
-    logging_levels = ["INFO", "ERROR"]
-    parser.add_argument(
-        "-l",
-        "--log-level",
-        default="ERROR",
-        choices=logging_levels,
-        help="Logging level (default: ERROR).",
-    )
-    # ...
     parser.add_argument(
         "--diff",
         help="Optionally provide the Git diff to the app directly as text, for development or debugging purposes."
         " If not provided, the app will read from Git repo.",
+    )
+    parser.add_argument(
+        "-l",
+        "--log-level",
+        default="ERROR",
+        choices=["INFO", "ERROR"],
+        help="Logging level (default: ERROR).",
+    )
+    parser.add_argument(
+        "--show-diff",
+        action="store_true",
+        help="Show the Git diff only and exit. This is useful for debugging the Git integration.",
     )
 
     args = parser.parse_args()
