@@ -1,5 +1,7 @@
 SHELL = /bin/bash
 
+DEV_LOG_LEVEL = INFO
+
 all: install check test
 
 h help:
@@ -29,21 +31,27 @@ test:
 	PYTHONPATH=. poetry run pytest
 
 
-diff:
-	(git diff --cached --exit-code && git -P diff || git -P diff --cached)
-
-
 run-help:
 	poetry run python -m llmcommitmsg -h
 
-run:
-	$(MAKE) diff \
-		| poetry run python -m llmcommitmsg
+# Local debugging commands with dry-run.
+
+# Use changes in the repo itself.
+
+run-repo:
+	poetry run python -m llmcommitmsg --dry-run --log-level $(DEV_LOG_LEVEL)
+
+# Use hardcoded input.
 
 sample:
-	poetry run python -m llmcommitmsg < sample.diff
+	poetry run python -m llmcommitmsg \
+		--dry-run \
+		--log-level $(DEV_LOG_LEVEL) \
+		--diff "$$(cat sample.diff)"
 
 sample-poll:
 	export OPENAI_API_HOST='https://text.pollinations.ai/openai' \
-		&& $(MAKE) diff \
-		| poetry run python -m llmcommitmsg
+		| poetry run python -m llmcommitmsg \
+			--dry-run \
+			--log-level $(DEV_LOG_LEVEL) \
+			--diff "$$(cat sample.diff)"

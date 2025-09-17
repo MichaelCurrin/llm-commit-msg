@@ -7,7 +7,6 @@ import sys
 
 from git import GitCommandError, Repo
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
@@ -40,19 +39,19 @@ def get_diff(repo: Repo) -> str:
     """
     try:
         if _has_staged_changes(repo):
-            logging.info("Using staged changes for the diff.")
+            logger.info("Using staged changes for the diff.")
             return repo.git.diff("--cached")
 
         if _has_working_tree_changes(repo):
-            logging.info(
+            logger.info(
                 "No staged changes found. Using working tree changes for the diff."
             )
             return repo.git.diff()
     except GitCommandError as e:
-        logging.error("Error accessing Git repository: %s", e)
+        logger.error("Error accessing Git repository: %s", e)
         sys.exit(1)
 
-    logging.error("No changes to commit.")
+    logger.error("No changes to commit.")
     sys.exit(1)
 
 
@@ -64,18 +63,18 @@ def commit_with_message(repo: Repo, message: str) -> None:
     try:
         if _has_staged_changes(repo):
             repo.index.commit(message)
-            logging.info("Commit successful (staged changes)!")
+            logger.info("Commit successful (staged changes)!")
             return
 
         if _has_working_tree_changes(repo):
             # Add all changes to the index.
             repo.git.add(A=True)
             repo.index.commit(message)
-            logging.info("Commit successful (working tree changes)!")
+            logger.info("Commit successful (working tree changes)!")
             return
     except GitCommandError as e:
-        logging.error("Error committing changes: %s", e)
+        logger.error("Error committing changes: %s", e)
         sys.exit(1)
 
-    logging.error("No changes to commit.")
+    logger.error("No changes to commit.")
     sys.exit(1)

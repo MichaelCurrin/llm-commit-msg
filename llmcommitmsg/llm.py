@@ -8,7 +8,6 @@ from openai import OpenAI
 
 from .constants import API_HOST, API_KEY, MODEL_NAME, SYSTEM_PROMPT, USER_PROMPT
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
