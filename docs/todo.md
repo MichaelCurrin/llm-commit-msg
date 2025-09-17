@@ -33,11 +33,3 @@ add step to **edit** message before committing - can be in Python app and then p
 maybe option to **retry** or **cancel**
 
 otherwise at least **print** the commit message
-
-
-## Logging and verbosity
-
-Set log level and verbosity flag:
-
-make info as debug
-or set log level as error, unless running local install - does pipx allow passing a flag?
