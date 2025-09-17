@@ -19,12 +19,6 @@
 - Handle git diff errors better - exit can work if outside git repo except that the tab closes.
 
 
-## Configuration and setup
-
-Set flags or env variables for model/API
-
-Mypy
-
 
 ## Commit message flow
 
