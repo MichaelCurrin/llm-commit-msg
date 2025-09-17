@@ -6,7 +6,7 @@ Clone the repo.
 
 ## Setup project
 
-Install project packages in an isolated enviroment with Poetry:
+Install project packages in an isolated environment with Poetry:
 
 ```sh
 $ make install
