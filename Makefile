@@ -1,11 +1,11 @@
 SHELL = /bin/bash
-
 DEV_LOG_LEVEL = INFO
 
 all: install check test
 
 h help:
 	@grep '^[a-z]' Makefile
+
 
 install:
 	poetry install --no-root
@@ -14,14 +14,17 @@ update:
 	poetry update
 
 g install-global:
-	pipx install .
+	pipx install . --force
 
 
+types:
+	poetry run mypy llmcommitmsg tests
 
 check:
 	poetry build
 	poetry run ruff format --check
 	poetry run ruff check --select I .
+	$(MAKE) types
 
 fmt:
 	poetry run ruff format
