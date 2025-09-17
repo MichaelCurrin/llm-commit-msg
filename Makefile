@@ -21,12 +21,6 @@ fmt:
 	poetry run ruff format
 	poetry run ruff check --select I --fix .
 
-
-help:
-	poetry run python -m llmcommitmsg -h
-
-# Test commands to show output without committing.
-
 test:
 	PYTHONPATH=. poetry run pytest
 
@@ -34,15 +28,18 @@ test:
 diff:
 	(git diff --cached --exit-code && git -P diff || git -P diff --cached)
 
+
+run-help:
+	poetry run python -m llmcommitmsg -h
+
 run:
 	$(MAKE) diff \
 		| poetry run python -m llmcommitmsg
 
-run-poll:
+sample:
+	poetry run python -m llmcommitmsg < sample.diff
+
+sample-poll:
 	export OPENAI_API_HOST='https://text.pollinations.ai/openai' \
 		&& $(MAKE) diff \
 		| poetry run python -m llmcommitmsg
-
-# Run against fixed input.
-sample:
-	poetry run python -m llmcommitmsg < sample.diff
