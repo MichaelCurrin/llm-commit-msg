@@ -1,4 +1,4 @@
-# LLM Commit Msg
+# LLM Commit Msg (Python)
 > CLI tool to generate a commit message with an LLM then commit it
 
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/llm-commit-msg?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/llm-commit-msg/releases/)
@@ -43,6 +43,11 @@ Or run without flags to generate a commit message and commit it. The default set
 [![View - Documentation](https://img.shields.io/badge/View-Documentation-blue?style=for-the-badge)](/docs/)
 
 </div>
+
+## Related projects
+
+- [MichaelCurrin/llm-commit-msg-vs-code](https://github.com/MichaelCurrin/llm-commit-msg-vs-code)
+  > Generate a commit message in VS Code Git sidebar using a local LLM
 
 
 ## License
